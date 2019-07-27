@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpOOPDemo
-{
+
     class Employee
     {
         private string _name;
@@ -30,7 +29,25 @@ namespace CSharpOOPDemo
         {
             Console.WriteLine("Hello World!");
             Employee employee = new Employee();
+            Student student = new Student();
             Console.ReadKey();
         }
     }
-}
+
+
+    public partial class Student
+    {
+        public string GetName()
+        {
+            return "Arsene Wenger";
+        }
+    }
+
+    public partial class Student
+    {
+        public int GetAge()
+        {
+            return 18;
+        }
+    }
+

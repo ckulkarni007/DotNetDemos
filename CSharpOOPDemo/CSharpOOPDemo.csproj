@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpOOPDemo.Polymorphism</StartupObject>
+    <StartupObject>CSharpOOPDemo.InnerExceptionHandling</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstraction.cs" />
     <Compile Include="Classes.cs" />
+    <Compile Include="ExceptionHandling.cs" />
+    <Compile Include="InnerExceptionHandling.cs" />
     <Compile Include="Polymorphism.cs" />
+    <Compile Include="Encapsulation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
