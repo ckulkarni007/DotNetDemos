@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{169BFC3B-DCB5-4A82-8B90-F50E218D3390}</ProjectGuid>
+    <ProjectGuid>{A8072E7D-C578-4728-AC63-0B96C91F665F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AdavancedCSharp</RootNamespace>
-    <AssemblyName>AdavancedCSharp</AssemblyName>
+    <RootNamespace>Events</RootNamespace>
+    <AssemblyName>Events</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,9 +31,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>AdavancedCSharp.Generics</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -45,10 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Delegates.cs" />
-    <Compile Include="Generics.cs" />
-    <Compile Include="NonGenericCollections.cs" />
+    <Compile Include="EmailService.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VideoManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

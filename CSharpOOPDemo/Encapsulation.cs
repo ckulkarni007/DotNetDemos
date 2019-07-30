@@ -12,17 +12,31 @@ namespace CSharpOOPDemo
         //public string Name;
         //public double Salary;
         //public int Age;
-
         private string _name;
         private double _salary;
         private int _age;
 
+        public string Name { get; set; }
+
+        public int Salary
+        {
+            get { return this._age; }
+            set {
+                if(value  < 10000)
+                {
+                    //throw exception
+                }
+                this._age = value;
+            }
+        }
+
         public void SetSalary(double amount)
         {
-            if (amount > 0)
-                this._salary = amount;
-            else
-                throw new Exception("Invalid Salary Amount...Kuch to do bhai");
+            //if (amount > 0)
+            //    this._salary = amount;
+            //else
+            //    throw new Exception("Invalid Salary Amount...Kuch to do bhai");
+            this._salary = amount;
         }
         public double GetSalary()
         {
@@ -59,8 +73,8 @@ namespace CSharpOOPDemo
             Console.WriteLine("Hello World!");
             //Encapsu
             Accountant accountant = new Accountant();
-            accountant.SetSalary(-50);
-
+            //accountant.SetSalary(-50);
+            accountant.Salary = 152;
             //Operator Overloading
 
             //Accountant accountant1 = new Accountant();

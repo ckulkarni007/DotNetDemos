@@ -60,4 +60,10 @@ namespace CSharpOOPDemo
             }
         }
     }
+
+    class Department
+    {
+        public string Name { get; set; }
+        public Student[] Students { get; set; }
+    }
 }

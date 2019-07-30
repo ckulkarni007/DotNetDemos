@@ -39,5 +39,57 @@ namespace CSharpOOPDemo
             Console.ReadLine();
         }
     }
+
+    public class ShapeCalculator
+    {
+        IShape _shape;
+        
+        public int GetShape()
+        {
+            Square rect = new Square();
+            int result = _shape.GetArea(10, 20);
+            return result;
+        }
+
+        public int GetShapeForSquare()
+        {
+            _shape = new Square();
+            int result = _shape.GetArea(10, 20);
+            return result;
+        }
+    }
+
+
+    interface IShape
+    {
+        int GetArea(int width, int length);
+    }
+    interface IShapeNew
+    {
+        int GetArea(int width, int length);
+    }
+
+    public class Rectangle : IShape, IShapeNew
+    {
+        int IShapeNew.GetArea(int width, int length)
+        {
+            throw new NotImplementedException();
+        }
+
+        int IShape.GetArea(int width, int length)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Square : IShape
+    {
+        public int GetArea(int width, int length)
+        {
+            if (width == length)
+                return width * length;
+            else return  0;
+        }
+    }
 }
 

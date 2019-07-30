@@ -41,9 +41,21 @@ using System.Threading.Tasks;
         {
             return "Arsene Wenger";
         }
-    }
+    public string Name { get; set; }
+    public Subject[] MyProperty { get; set; }
+}
 
-    public partial class Student
+public class Subject
+{
+    public string Name { get; set; }
+
+    public string GetName()
+    {
+        throw new Exception("This has been thrown by me not by system");
+    }
+}
+
+public partial class Student
     {
         public int GetAge()
         {

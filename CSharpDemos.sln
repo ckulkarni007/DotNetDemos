@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdavancedCSharp", "Adavance
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpOOPDemo", "CSharpOOPDemo\CSharpOOPDemo.csproj", "{F28D059C-139B-4636-B18B-EF97B44CD375}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{A8072E7D-C578-4728-AC63-0B96C91F665F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F28D059C-139B-4636-B18B-EF97B44CD375}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F28D059C-139B-4636-B18B-EF97B44CD375}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F28D059C-139B-4636-B18B-EF97B44CD375}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8072E7D-C578-4728-AC63-0B96C91F665F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8072E7D-C578-4728-AC63-0B96C91F665F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8072E7D-C578-4728-AC63-0B96C91F665F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8072E7D-C578-4728-AC63-0B96C91F665F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

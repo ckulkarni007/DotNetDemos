@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>CSharpOOPDemo.InnerExceptionHandling</StartupObject>
+    <StartupObject>CSharpOOPDemo.ExceptionHandling</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstraction.cs" />
+    <Compile Include="Beginer.cs" />
     <Compile Include="Classes.cs" />
+    <Compile Include="Collections.cs" />
     <Compile Include="ExceptionHandling.cs" />
+    <Compile Include="Inheritance.cs" />
     <Compile Include="InnerExceptionHandling.cs" />
     <Compile Include="Polymorphism.cs" />
     <Compile Include="Encapsulation.cs" />
