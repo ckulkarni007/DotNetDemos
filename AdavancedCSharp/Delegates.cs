@@ -19,20 +19,18 @@ namespace AdavancedCSharp
 
         public static int ProcessNumbers(int a, int b, MathOperation mathOperation)
         {
+
+            //int store
+            // int validation
+            // int datye, business check
+
             return mathOperation(a, b);
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            int a = Convert.ToInt32(Console.ReadLine());
-            int b = Convert.ToInt32(Console.ReadLine());
-            MathOperation addOperation = new MathOperation(Sum);
-            MathOperation subOperation = new MathOperation(Subtract);
-            Console.WriteLine($"a + b = {addOperation(a, b)}");
-            Console.WriteLine($"a - b = {subOperation(a, b)}");
-
-            //Predicate<int> funcOperation = new Predicate<int>(Sum);
+            //MathOperation mathOperation = new MathOperation(Sum);
+            ProcessNumbers(10, 20, Sum);
 
             Console.ReadKey();
         }

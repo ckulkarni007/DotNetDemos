@@ -1,43 +1,32 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdavancedCSharp
 {
     class NonGenericCollections
     {
 
+        public bool IsNameMatch(string name)
+        {
+            return name.Equals("testt0");
+        }
+
         static void Main(string[] args)
         {
-            ArrayList intArrayList = new ArrayList(12);
-            Console.WriteLine(intArrayList.Capacity);
-            intArrayList.Add(new Student("Chaitanya"));
-            intArrayList.Add(new Student("Chaitanya"));
-            intArrayList.Add(new Student("Chaitanya"));
-            intArrayList.Add(new Student("Chaitanya"));
-            Console.WriteLine(intArrayList.Capacity);
-            intArrayList.Add(new Student("Chaitanya"));
-            intArrayList.Add(new Student("Chaitanya"));
-            Console.WriteLine(intArrayList.Capacity);
+            List<string> studentNames = new List<string>();
 
-            //foreach (var item in intArrayList)
-            //{
-            //    Console.WriteLine(item.ToString());
-            //}
-            int[] vs = { 1, 1 };
-            IEnumerator enumerator = intArrayList.GetEnumerator();
-            while (enumerator.MoveNext())
+
+            studentNames.Add("Jayashree");
+            studentNames.Add("Chaitanya");
+            studentNames.Add("Akshay");
+            studentNames.Add("Priyanka");
+
+
+            foreach (var item in studentNames)
             {
-                Student student = (Student)enumerator.Current;
-                Console.WriteLine(student.ToString());
+                Console.WriteLine(item);
             }
-
-
-
-
 
 
             Console.ReadLine();

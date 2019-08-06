@@ -9,6 +9,7 @@ Problem Statement - We have to create a generic collection which will have the f
  - Add multiple items inside a collection.
  - Clear the collection
  - Count of the collection - It has to be property.
+ - Capacity
  - Remove the specific item from collection. 
  - Remove All that matches the given set. (Delegate will be needed here).
  - Find an item from collection. - (Delegate will be needed here).

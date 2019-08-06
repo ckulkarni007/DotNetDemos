@@ -1,86 +1,60 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AdavancedCSharp
 {
+
     class Generics
     {
         public static void Main()
         {
-            #region Generic Abstraction
-            Console.WriteLine("Hello World!!");
-            //Employee<int> employee = new Employee<int>(new SimpleCalc());
-            //int totalSalry = employee.GetTotalSalary(10000, 2000);
-            //Console.WriteLine("Total Salary" + totalSalry);
-            //bool areEqual = employee.AreEqual(1000, 2000);
-
-            //Employee<double> newEmp = new Employee<double>(new SimpleDoubleCalc());
-            //double netSalary = newEmp.GetTotalSalary(12569.5541, 2685.2125);
-            BookStore bookStore = new BookStore();
-            bookStore.Add(new Book() { Name = "Demo on C#" });
-            bookStore.Add(new Book() { Name = "test on C#" });
-            bookStore.Add(new Book() { Name = "Demo on sacsa#" });
-            bookStore.Add(new Book() { Name = "Demo on casc#" });
-            Console.WriteLine(bookStore[2].Name);
-
-            Store<Book> bookStoreNew = new Store<Book>();
-            Console.ReadLine();
-            #endregion
-
+            Store<string> strStore = new Store<string>();
+            strStore.Add("test");
+            foreach (var item in strStore)
+            {
+                Console.WriteLine(item);
+            }
+            Addition addition = new Addition(10);
+            ICalculator<int> simpleCalc = new SimpleCalc();
 
         }
-
     }
 
-   
-
-
-    #region  Generic Collection
-    class Store<T>
+    class Customer
     {
-        private T[] _itemCollection = new T[20];
-        private int _counter = 0;
+        public Customer()
+        {
+
+        }
+        public Customer(string Name)
+        {
+
+        }
+       
+    }
+
+    class Store<T>// : IEnumerable<T>
+    {
+        T[] ts = new T[20];
+        int index = 0;
 
         public void Add(T item)
         {
-            _itemCollection[_counter] = item;
-            _counter++;
+            ts[index] = item;
+            index++;
+        }
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ts.Cast<T>().GetEnumerator();
         }
 
-        public T this[int index]
-        {
-            get
-            {
-                return _itemCollection[index];
-            }
-        }
-         
+        //IEnumerator IEnumerable.GetEnumerator()
+        //{
+        //    return this.GetEnumerator();
+        //}
     }
-
-
-    class BookStore
-    {
-        private Book[] _books = new Book[20];
-        private int _counter = 0;
-        public void Add(Book book)
-        {
-            _books[_counter] = book;
-            _counter++;
-        }
-
-        public Book this[int index]
-        {
-            get
-            {
-                return _books[index];
-            }
-        }
-    }
-    class Book
-    {
-        public string Name { get; set; }
-    } 
-    #endregion
 
 
     #region Operators In Generic
@@ -98,19 +72,19 @@ namespace AdavancedCSharp
             return new Addition(a.Number + b.Number);
         }
 
-        public T Add<T>(T a, T b) where T : Addition, new()
+        public T Add<T>(T a, T b) where T : Addition
         {
-            return new T();
+            return (T)(a + b);
         }
-    } 
+    }
     #endregion
 
     #region Generic Abstraction
 
     class Employee<T> where T : struct
     {
-        Calculator<T> _calculator;
-        public Employee(Calculator<T> calculator)
+        ICalculator<T> _calculator;
+        public Employee(ICalculator<T> calculator)
         {
             _calculator = calculator;
         }
@@ -125,34 +99,34 @@ namespace AdavancedCSharp
         }
     }
 
-    abstract class Calculator<T> where T : struct
+    interface ICalculator<T> where T : struct
     {
-        public abstract T Add(T a, T b);
+         T Add(T a, T b);
 
-        public abstract bool Equals(T a, T b);
+         bool Equals(T a, T b);
     }
 
-    class SimpleCalc : Calculator<int>
+    class SimpleCalc : ICalculator<int>
     {
-        public override int Add(int a, int b)
+        public int Add(int a, int b)
         {
             return a + b;
         }
 
-        public override bool Equals(int a, int b)
+        public bool Equals(int a, int b)
         {
             return a == b ? true : false;
         }
     }
 
-    class SimpleDoubleCalc : Calculator<double>
+    class SimpleDoubleCalc : ICalculator<double>
     {
-        public override double Add(double a, double b)
+        public double Add(double a, double b)
         {
             return a + b;
         }
 
-        public override bool Equals(double a, double b)
+        public bool Equals(double a, double b)
         {
             return a == b ? true : false;
         }
