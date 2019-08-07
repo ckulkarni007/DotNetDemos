@@ -10,15 +10,23 @@ namespace LINQTutorials
     class Program
     {
 
+        public static int FormADictionary(OfficeEmployee officeEmployee)
+        {
+            return officeEmployee.Id;
+        }
+
         static void Main(string[] args)
         {
-            var employeeCollection = OfficeEmployee.GetEmployeeDetails();
+            var empCollection = OfficeEmployee.GetEmployeeDetails();
 
-            IEnumerable<OfficeEmployee> maleEmployee = employeeCollection.Where(emp => emp.Gender.Equals(Gender.male));
+            var groupCollection = empCollection.GroupBy(emp => new { Gender = emp.Gender, ManagerId = emp.ManagerId });
 
-            foreach (var item in maleEmployee)
+            foreach (var groupName in groupCollection)
             {
-                Console.WriteLine(item.Name);
+                foreach (var elementsInGroup in groupName)
+                {
+                    Console.WriteLine(elementsInGroup.Name);
+                }
             }
 
             Console.ReadKey();
