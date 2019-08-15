@@ -18,7 +18,7 @@ Create 3 collections with following details
 	- GenderEqualityRatio
 	- List Cities present in a state
 	- Rivers
-
+   
 3. City
 	- Id
 	- Name
