@@ -14,7 +14,7 @@ namespace AdavancedCSharp
 
         static void Main(string[] args)
         {
-            List<string> studentNames = new List<string>();
+            ArrayList studentNames = new ArrayList(2);
 
 
             studentNames.Add("Jayashree");

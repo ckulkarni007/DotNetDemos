@@ -8,7 +8,7 @@ namespace LINQTutorials
     {
         public bool Equals(OfficeEmployee x, OfficeEmployee y)
         {
-            if(x!=null && y != null)
+            if (x != null && y != null)
             {
                 if (x.Name.Equals(y.Name, StringComparison.InvariantCultureIgnoreCase) && x.Gender.Equals(y.Gender) && x.Age.Equals(y.Age))
                     return true;
@@ -19,13 +19,14 @@ namespace LINQTutorials
 
         public int GetHashCode(OfficeEmployee obj)
         {
-            int hashSalt = 1234564789;
+           
+            int x = 1234564789;
 
-            hashSalt = hashSalt ^ obj.Age.GetHashCode();
-            hashSalt = hashSalt ^ obj.Name.GetHashCode();
-            hashSalt = hashSalt ^ obj.Gender.GetHashCode();
+            x = x ^ obj.Age.GetHashCode();
+            x = x ^ obj.Name.GetHashCode();
+            x = x ^ obj.Gender.GetHashCode();
 
-            return hashSalt;
+            return x;
         }
     }
 }

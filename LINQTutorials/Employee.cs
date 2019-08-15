@@ -12,6 +12,7 @@ namespace LINQTutorials
         {
             List<Manager> managers = new List<Manager>();
             managers.Add(new Manager { Id = 1, Gender = Gender.male, Name = "Bob" });
+            managers.Add(new Manager { Id =4, Gender = Gender.male, Name = "NewManger" });
             return managers;
         }
 

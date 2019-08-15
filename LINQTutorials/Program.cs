@@ -17,19 +17,70 @@ namespace LINQTutorials
 
         static void Main(string[] args)
         {
+            List<int> item1 = new List<int> { 1, 2, 3, 4, 4, 5, 8, 1, 2 };
+
+            foreach (var item in item1.Distinct())
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
+            var empCollection = OfficeEmployee.GetEmployeeDetails();
+
+            var ordereddEmpCollection = empCollection.OrderByDescending(x => x.Salary);
+            foreach (var item in ordereddEmpCollection)
+            {
+                Console.WriteLine($"Name {item.Name}, Salary {item.Salary}");
+            }
+
+            Console.ReadKey();
+           
+
+            var groupQuery = empCollection.GroupBy(emp => new { Manager = emp.ManagerId, Gender = emp.Gender });
+
+            foreach (var group in groupQuery)
+            {
+                Console.WriteLine(group.Key);
+                foreach (var emp in group)
+                {
+                    Console.WriteLine($"Name {emp.Name} , Gender {emp.Gender}");
+                }
+            }
+            Console.ReadKey();
+            //var innerQuery = from emp in empCollection
+            //                 join man in manCollection
+            //                 on emp.ManagerId equals man.Id into empManGroup
+            //                 select emp;
+
+            var innerQuery = empCollection.OrderBy(x => x.Salary);
+
+            foreach (var item in innerQuery)
+            {
+                Console.WriteLine($"Employee Id {item.Id} and employee name {item.Name} with manager id {item.Salary}");
+            }
+
+            Console.ReadKey();
+        }
+
+        private static void MultipleGroupBy()
+        {
             var empCollection = OfficeEmployee.GetEmployeeDetails();
 
             var groupCollection = empCollection.GroupBy(emp => new { Gender = emp.Gender, ManagerId = emp.ManagerId });
 
             foreach (var groupName in groupCollection)
             {
+                string mangerId = "No Manager allocated";
+                if(groupName.Key.ManagerId != 0)
+                {
+                    mangerId = groupName.Key.ManagerId.ToString();
+                }
+
+                Console.WriteLine("\n Total Count of employees under Manager Id " + mangerId + " and which are " + groupName.Key.Gender + " is " + groupName.Count());
                 foreach (var elementsInGroup in groupName)
                 {
-                    Console.WriteLine(elementsInGroup.Name);
+                    Console.WriteLine("\t" + elementsInGroup.Name);
                 }
             }
-
-            Console.ReadKey();
         }
 
         private static void LinqToSql()
@@ -70,7 +121,14 @@ namespace LINQTutorials
             var employees = OfficeEmployee.GetEmployeeDetails();
             var newEmployees = OfficeEmployee.GetEmployeeDetailsNew();
 
-            var emp = employees.Union(newEmployees, new EmployeeComparer()).ToList();
+
+            var empUnion = employees.Union(newEmployees, new EmployeeComparer()).ToList();
+
+            foreach (var item in empUnion)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadLine();
 
             var intersetct = employees.Intersect(newEmployees, new EmployeeComparer());
         }
