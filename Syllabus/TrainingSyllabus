@@ -1,0 +1,28 @@
+1. .Net Fundamentals - CLR, CTS, BCL+FCL, CLS, JIT - 2hr
+2. C# Basics - DataTypes, Variables(value n Ref), Encapsulation(Access Modifiers), String, Array, Enums - 4hr
+               Classes, Polymorphism(method n operator), Inheritance, Nullable, Exception Handling
+3. C# Advanced - Reflection, Properties, Delegates, Events, Collections, Generics, Anonymous Methods - 4hr
+                (Threading), Extension methods
+C# Assignments
+----------------
+1. C# LINQ - What and Why of LINQ, Different Query operators, LINQ API, Immediate and Differed Queries, Std Query Operators
+            Expression - 3-4hr
+----------------
+ASP.Net - What is server side scripting, Page life cycle
+
+
+-------------
+Web API - API Terms, Verbs, Status, What are the controllers, Web Configuration, Routing, Parameter binding, Actions - 4hr
+            The ASP.NET Web API 2 HTTP Message Lifecycle
+          Different data formats, media formatters, Return Actions, Filters Creating Crud Operations, Consumer view(Postman/Fiddler),
+          HttpClient, Hosting, Dependancy injection - 4hr
+
+          Error Handling, Authentication and autherization - 4hr
+
+-------------
+Entity Framework - DB First Basics, Fundamentals, Understanding Relationships, Scope of DbContext, Query operations, DB connectivity
+
+ADO.Net - What is it, Data providers and their types, ADO.Net objects, Database connection, different types of query, Stored procedures, Data readers, datasets and data adapters, CRUD operations
+
+Total - 40Hr
+

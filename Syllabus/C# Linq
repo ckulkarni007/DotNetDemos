@@ -1,0 +1,45 @@
+C# Linq
+
+Extension methods - 
+
+
+Anonymous methods - 
+
+
+
+Aggregate Functions - 
+- Min, Max, sum, count, Aggregate
+
+Restriction -
+ Where
+
+Projection -
+ Select,  SelectMany
+
+Partitioning-
+  Take, Skip, TakeWhile
+
+Deferred Query - 
+	Select, Where, SelectMany, Take, Skip
+
+Immediate Query-
+	ToList, Count, Average, Min , Max
+
+Cast - Tries for all elements to cast, exception comes
+and OfType<> - ignores other types
+
+Conversion - 
+	ToList(), TODictionary(), ToLookUp()
+
+Element Operators - (retrieve single element)
+  - First, FirstOrDefault, Last, LastOrDefault, Single, SingleOrDefault, ElementAt, ElementAtDefault
+
+  GroupBy 
+  - Single and multiple
+
+
+ Join - 
+ 	GroupJoin, InnerJoin, Lefter, Outer 
+
+ CombinableOpeations -
+ Union, Intersect, Distinct

@@ -1,0 +1,43 @@
+OOps
+
+Realtime eg. (human world)
+
+Class - 
+What is a class (State and behaviour)
+Purpose of a constructor, Types - private, parameterized, copy,default and static
+Overloading of class constructor
+Understanding of this keyword
+Destructor
+partial classes - asp.net autocode generation, EF code generation, better maintance, parallel development
+sealed classes - security, singleton
+
+Static and Instance Class Members - (static vars can be changed by any instance which is not good)
+Static members
+Instance members
+Difference
+Example
+
+Inheritance - 
+Why - Code reuse
+Constructor Instantiation - Base first then child
+Child classes are the specialization of the base
+Single inheritance is possible
+Why multi is not possible (same methods/properties present in both the parent then child gets confuse which one to take)
+
+Polymorphism-
+Overloading
+hiding - refernce type
+Overriding - instance type
+
+Encapsulation (Its about who is in control)
+- Data hiding
+- Increased flexibility as readonly or writeonly
+- Code testability and reusability
+- Eg. USB port in mobile
+
+Abstraction
+- Interfaces (Implicit and explicit) - Inherit from another interface
+- Abstract classes
+- 
+
+

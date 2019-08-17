@@ -1,0 +1,30 @@
+.Net Fundamentals
+
+
+Compilation - 2 step 
+			1. Language compilers (language - MSIL intermediate lang (dll /.exe))
+			2. JIT (MSIL to binary)
+CLR Elements - 
+
+1.  CLS - Common Language Specification 
+	Nothing but MSIL - Base ruleset that all languages has to follow if u r building on top of .net
+
+2.  CTS - Common Type System (value and reference)
+	- Specifies how types declared, used and managed
+	- Cross-language integration, type safety, high performance
+
+
+3.	Garbage Collection - 
+	Managed Memory
+	- Memory types - Heap and stack
+
+	- Called in case when - low physical memory indication by OS
+						- memory in managed heap surpases the threshold
+						- GC.Collect is called explicitly by user
+	- Generations - 0 - Short lived
+				  - 1 - Short lived
+				  - 2 - Long lived 
+				  Survival and promotions
+4 JIT Compiler - Pre (everything at the start itself)
+			   - Econo (removes once used)
+			   - Normal (Caching)
