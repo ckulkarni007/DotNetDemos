@@ -6,7 +6,22 @@ using System.Linq;
 
 namespace LINQTutorials
 {
+    class MainEmployee
+    {
+        public int Id { get; set; }
+    }
+    class FullTimeEmp : MainEmployee
+    {
+        public int NoticePeriod { get; set; }
+    }
+    class ContractEmp : MainEmployee
+    {
+        public int NoticePeriod { get; set; }
+    }
+    class Intern : MainEmployee
+    {
 
+    }
     class Program
     {
 
@@ -18,6 +33,15 @@ namespace LINQTutorials
         static void Main(string[] args)
         {
             List<int> item1 = new List<int> { 1, 2, 3, 4, 4, 5, 8, 1, 2 };
+
+            List<MainEmployee> allEMp = new List<MainEmployee>();
+            allEMp.Add(new Intern());
+            allEMp.Add(new ContractEmp());
+            allEMp.Add(new FullTimeEmp());
+
+            var resi = allEMp.OfType<ContractEmp>();
+            var resiFull = allEMp.OfType<FullTimeEmp>();
+
 
             foreach (var item in item1.Distinct())
             {

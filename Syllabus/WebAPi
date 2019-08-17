@@ -1,0 +1,34 @@
+Web API 
+
+WCF - cross protocol support. Single service can serve 2 clients java n .net with different protocols like FTP n HTTP.
+
+
+REST Constraints -
+- ClientServer
+- Stateless
+- Cacheable - (for the data which is not changable over a period of time, performance improv.)
+- Uniform Interface (Resource - dataentities,)
+- 
+
+Evolution of API - (initially there were different methods exposed for individual operation)
+Then HTTP evolution (GET, POST, PUT etc.)
+
+POST: take this data and apply it to the resource identified by the given URI, following the rules you documented for the resource media type.
+
+PUT: replace whatever is identified by the given URI with this data, ignoring whatever is in there already, if anything.
+
+PATCH: if the resource identified by the given URI still has the same state it had the last time I looked, apply this diff to it.
+
+
+Web API Pipeline 
+( low level handler and Controller pipeline)
+1. Request Delegate Handlers - Global
+							 - Per Route
+2. HttpRouteDispatcher  
+3. HttpControllerDispatcher - Final Stop
+4. Controller Selector, Activator
+5. ApiController - HttpActionSelectior, descriptor (to decide the actions to be picked up)
+6. Filters - Types  - Authentication
+					- Autherization
+					- Action
+					- Exception

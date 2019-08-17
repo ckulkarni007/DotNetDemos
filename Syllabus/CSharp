@@ -1,0 +1,30 @@
+
+Properties - 
+- They are not varibles, can't pass as ref or out
+- Interface properties are contracts, concrete class has to implement them
+
+Exception handling-
+- Unforseen error
+- Avoid exceptions from user - because
+							1. They are anoying as they are cryptic makes no sense to users.
+							2. Exception contain information, chances of hacking.
+- Stack tracing
+- Inner exceptions
+- Custom Exceptions
+- Avoid misuse of exception - use try parse instead of specific exception handling
+
+Delegates - 
+- Refernce to method
+
+Generics - 
+- allow us to decouple types n methods from datatypes
+- Boxing and unboxing - performance penalty.
+- type safety at compile time, code reuse
+- Casting is not needed
+- Generic Delegates
+- Generic Constraints
+- Can be applied on class, property, method, delegate etc.
+
+
+String - 
+ToString and Convert.ToString() - .ToString() cannot handle null reference

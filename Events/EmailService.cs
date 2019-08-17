@@ -6,7 +6,7 @@ namespace Events
     {
         public void EventOccuredHandler(object sender, VideoArgs eventArgs)
         {
-            Console.WriteLine($" {eventArgs.Video.Name} ideo Email has been sent successfully");
+            Console.WriteLine($" {eventArgs.Video.Name} video Email has been sent successfully");
         }
     }
    
