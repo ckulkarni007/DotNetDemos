@@ -8,6 +8,7 @@ namespace LINQTutorials
 {
     class MainEmployee
     {
+        
         public int Id { get; set; }
     }
     class FullTimeEmp : MainEmployee

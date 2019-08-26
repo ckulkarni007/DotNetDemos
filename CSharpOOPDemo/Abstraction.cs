@@ -9,6 +9,7 @@ namespace CSharpOOPDemo
     interface IMobileDevice
     {
         void Ring();
+        void test();
     }
 
     interface ILandLineDevice
@@ -18,6 +19,11 @@ namespace CSharpOOPDemo
 
     public class DeviceRingtone : IMobileDevice, ILandLineDevice
     {
+        public void test()
+        {
+            throw new NotImplementedException();
+        }
+
         void ILandLineDevice.Ring()
         {
             Console.WriteLine("Hehe...I am a classic one");

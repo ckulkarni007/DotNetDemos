@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
+using WebAPIDemo.Filters;
 
 namespace WebAPIDemo
 {
@@ -12,6 +13,7 @@ namespace WebAPIDemo
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+           // GlobalConfiguration.Configuration.Filters.Add(new ActionFilterDemo());
         }
     }
 }

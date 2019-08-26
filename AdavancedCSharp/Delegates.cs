@@ -23,8 +23,10 @@ namespace AdavancedCSharp
             //int store
             // int validation
             // int datye, business check
+            MathOperation test = new MathOperation(Sum);
+            test += Subtract;
 
-            return mathOperation(a, b);
+            return test(10,20);
         }
 
         static void Main(string[] args)

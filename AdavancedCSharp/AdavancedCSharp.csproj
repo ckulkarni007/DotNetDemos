@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>AdavancedCSharp.NonGenericCollections</StartupObject>
+    <StartupObject>AdavancedCSharp.Generics</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Delegates.cs" />
     <Compile Include="Generics.cs" />
     <Compile Include="NonGenericCollections.cs" />

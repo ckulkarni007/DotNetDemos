@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 
 namespace ADO.Net
 {
@@ -13,6 +15,9 @@ namespace ADO.Net
             LINQTOSQLEntities.RetrieveEmployeeDetails();
             Console.ReadKey();
         }
+    }
+    public class ADOHelper
+    {
 
         public static void ReadDataUsingDisconnectedMode()
         {
@@ -35,7 +40,6 @@ namespace ADO.Net
             SqlConnection sqlConnection = new SqlConnection("data source = (local); database=tutorials; integrated security =SSPI");
 
             DataSet dataSet = new DataSet();
-
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from employees", sqlConnection);
 
             sqlDataAdapter.Fill(dataSet);
@@ -52,7 +56,6 @@ namespace ADO.Net
             sqlConnection.Open();
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
             while (sqlDataReader.Read())
             {
                 Console.WriteLine(sqlDataReader[4]);
@@ -69,7 +72,7 @@ namespace ADO.Net
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-           
+
             while (sqlDataReader.NextResult())
             {
                 while (sqlDataReader.Read())
@@ -121,10 +124,10 @@ namespace ADO.Net
                 sqlConnection.Open();
                 sqlDataReader = sqlCommandWithParam.ExecuteReader();
                 if (sqlDataReader.IsClosed) ;
-                
+
             }
 
-            while (!sqlDataReader.IsClosed &&  sqlDataReader.Read())
+            while (!sqlDataReader.IsClosed && sqlDataReader.Read())
             {
                 Console.WriteLine((string)sqlDataReader[1]);
             }
@@ -132,14 +135,14 @@ namespace ADO.Net
 
 
         //SQL Reader with Params
-        private static void SQLReaderWithDataTable()
+        public static List<Employee> SQLReaderWithDataTable()
         {
             string connString = ConfigurationManager.ConnectionStrings["tutorialConnection"].ConnectionString;
             DataTable dataTable = new DataTable();
             using (SqlConnection sqlConnection = new SqlConnection(connString))
             {
                 SqlCommand sqlCommand = new SqlCommand("Select * from Employees", sqlConnection);
-               
+
                 dataTable.Columns.Add("Id");
                 dataTable.Columns.Add("FirstName");
                 dataTable.Columns.Add("Salary");
@@ -151,14 +154,11 @@ namespace ADO.Net
                     dataTable.Rows.Add(sqlDataReader["ID"], sqlDataReader["FirstName"], sqlDataReader["Salary"]);
                 }
             }
-            foreach (DataRow item in dataTable.Rows)
-            {
-                Console.WriteLine(item["Id"].ToString());
-                Console.WriteLine(item["FirstName"].ToString());
-                Console.WriteLine(item["Salary"].ToString());
-            }
+            var list = dataTable.AsEnumerable().Select(x => new Employee() { ID = Convert.ToInt32(x["Id"]), FirstName = x["FirstName"].ToString(), Salary = Convert.ToInt32(x["Salary"]) }).ToList();
+            return list;
         }
 
-        
+
     }
+
 }
