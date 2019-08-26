@@ -16,7 +16,7 @@ namespace ADO.Net
         {
             
             SqlConnection sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["tutorialConnection"].ConnectionString);
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from employees", sqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("select * from employees" , sqlConnection);
             DataSet dataSet = new DataSet();
             SqlCommand updateCommand = new SqlCommand("Update employees set  Salary = @Salary where ID = @ID", sqlConnection);
             updateCommand.Parameters.Add("@Salary", SqlDbType.Int, 0, "Salary");
@@ -52,12 +52,12 @@ namespace ADO.Net
 
             empTable.Rows.Add(newRow);
 
-            ////Update
-            //var rowToUpdate = dataSet.Tables["Employees"].AsEnumerable().FirstOrDefault(x => x["ID"].Equals(id));
-            //Console.WriteLine(rowToUpdate.RowState);
-            //rowToUpdate["FirstName"] = "This Is updated one new";
-            //Console.WriteLine(rowToUpdate.RowState);
-            //Console.ReadLine();
+            //Update
+            var rowToUpdate = dataSet.Tables["Employees"].AsEnumerable().FirstOrDefault(x => x["ID"].Equals(id));
+            Console.WriteLine(rowToUpdate.RowState);
+            rowToUpdate["FirstName"] = "This Is updated one new";
+            Console.WriteLine(rowToUpdate.RowState);
+            Console.ReadLine();
             sqlDataAdapter.Update(dataSet, "Employees");
         }
 

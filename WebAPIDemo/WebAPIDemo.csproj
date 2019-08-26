@@ -87,6 +87,13 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\ManagerDetailsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\YoungEmployeeController.cs" />
+    <Compile Include="Filters\ActionFilterDemo.cs" />
+    <Compile Include="Filters\ExceptionFilterDemo.cs" />
+    <Compile Include="Filters\ResultFilterDemo.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -106,6 +113,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ADO.Net\ADO.Net.csproj">
+      <Project>{8c456706-a00f-4aa7-8ece-62ecbb39601f}</Project>
+      <Name>ADO.Net</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LINQTutorials\LINQTutorials.csproj">
       <Project>{4F62C6AE-C2CE-4DD1-A1FD-6D390CA9553E}</Project>
       <Name>LINQTutorials</Name>

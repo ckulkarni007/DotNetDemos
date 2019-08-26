@@ -16,6 +16,7 @@ namespace AdavancedCSharp
         {
             ArrayList studentNames = new ArrayList(2);
 
+            Hashtable hashtable = new Hashtable();
 
             studentNames.Add("Jayashree");
             studentNames.Add("Chaitanya");

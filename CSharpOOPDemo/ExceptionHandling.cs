@@ -6,40 +6,15 @@ namespace CSharpOOPDemo
     {
         public static void Main()
         {
-            
 
             try
             {
-                string[] collection = new string[5];
-                collection[0] = "Chiatnaya";
-                collection[1] = "Chiatnaya";
-                collection[2] = "Chiatnaya";
-                collection[3] = "Chiatnaya";
-                collection[4] = null;
-
-                int operator1 = 20;
-                for (int i = 0; i < collection.Length; i++)
-                {
-                    var temp = collection[i] ?? string.Empty;
-
-                    Console.WriteLine(temp);
-
-
-                }
-                Console.ReadLine();
+                Test();
             }
-            catch (DivideByZeroException ex)
+            catch (Exception ex)
             {
 
-                Console.WriteLine("divide by zero occured");
-            }           
-            catch (IndexOutOfRangeException ex)
-            {
-                
-            }
-            catch (Exception)
-            {
-
+                throw;
             }
 
             //StreamReader streamReader = null;
@@ -56,7 +31,7 @@ namespace CSharpOOPDemo
             ////// This catch block handles all the other exceptions
             //catch (FileNotFoundException exception)
             //{
-                 
+
             //}
             //finally
             //{
@@ -65,6 +40,42 @@ namespace CSharpOOPDemo
             //        streamReader.Close();
             //    }
             //}
+        }
+
+        private static void Test()
+        {
+            try
+            {
+                int[] collection = new int[5];
+                collection[0] = 1;
+                collection[1] = 1;
+                collection[2] = 1;
+                collection[3] = 1;
+                collection[4] = 0;
+
+                int operator1 = 20;
+                for (int i = 0; i < collection.Length; i++)
+                {
+                    var temp = collection[i];
+                    Console.WriteLine(operator1 / temp);
+
+
+                }
+                Console.ReadLine();
+            }
+            catch (DivideByZeroException ex)
+            {
+                Exception exception = new Exception("exception", ex);
+                throw exception;
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 

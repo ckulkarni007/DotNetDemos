@@ -10,15 +10,15 @@ namespace AdavancedCSharp
     {
         public static void Main()
         {
-            Store<string> strStore = new Store<string>();
-            strStore.Add("test");
-            foreach (var item in strStore)
-            {
-                Console.WriteLine(item);
-            }
-            Addition addition = new Addition(10);
-            ICalculator<int> simpleCalc = new SimpleCalc();
-
+            //Store<string> strStore = new Store<string>();
+            //strStore.Add("test");
+            //foreach (var item in strStore)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Addition addition = new Addition(10);
+            //ICalculator<int> simpleCalc = new SimpleCalc();
+           
         }
     }
 

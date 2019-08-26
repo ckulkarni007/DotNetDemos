@@ -11,6 +11,9 @@ namespace CSharpOOPDemo
     {
         static void Main(string[] args)
         {
+
+            HashSet<string> vs = new HashSet<string>();
+
             Console.WriteLine("Hello World!");
             int[] array = new int[3]; // 3 size array
             array[0] = 1;
