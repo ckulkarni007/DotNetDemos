@@ -1,0 +1,6 @@
+Querying: Converts LINQ-to-Entities queries to SQL query and sends them to the database.
+Change Tracking: Keeps track of changes that occurred on the entities after querying from the database.
+Persisting Data: Performs the Insert, Update and Delete operations to the database, based on entity states.
+Caching: Provides first level caching by default. It stores the entities which have been retrieved during the life time of a context class.
+Manage Relationship: Manages relationships using CSDL, MSL and SSDL in Db-First or Model-First approach, and using fluent API configurations in Code-First approach.
+Object Materialization: Converts raw data from the database into entity objects.

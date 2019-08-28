@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeManagementAPI", "EmployeeManagementAPI\EmployeeManagementAPI.csproj", "{F562A8F5-AA18-4834-99D0-632CC0734E18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityDemoDBFirst", "EntityDemoDBFirst\EntityDemoDBFirst.csproj", "{CC6EB607-39D8-4B66-824C-4EC6A22F1158}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{F562A8F5-AA18-4834-99D0-632CC0734E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F562A8F5-AA18-4834-99D0-632CC0734E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F562A8F5-AA18-4834-99D0-632CC0734E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6EB607-39D8-4B66-824C-4EC6A22F1158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6EB607-39D8-4B66-824C-4EC6A22F1158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6EB607-39D8-4B66-824C-4EC6A22F1158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6EB607-39D8-4B66-824C-4EC6A22F1158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

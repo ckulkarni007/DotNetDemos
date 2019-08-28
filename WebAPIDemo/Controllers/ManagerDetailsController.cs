@@ -18,7 +18,7 @@ namespace WebAPIDemo.Controllers
         }
 
 
-        [Route("{id}/employees")]
+        [Route("{id:alpha}/employees")]
         public string GetManagerById(int id, [FromBody]string name)
         {
             return "employee records for id " + id;
