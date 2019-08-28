@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Web.Http;
 
 namespace EmployeeManagementAPI.Controllers
@@ -22,10 +23,13 @@ namespace EmployeeManagementAPI.Controllers
         {
             return OfficeEmployee.GetEmployeeById(id);
         }
+
+
         [HttpGet]
-        public OfficeEmployee FindEmployeeBySalary(int salary)
+        public List<MediaTypeFormatter> GetFormatters()
         {
-            return OfficeEmployee.GetEmployeeBySalary(salary);
+            return Configuration.Formatters.ToList();
         }
+
     }
 }

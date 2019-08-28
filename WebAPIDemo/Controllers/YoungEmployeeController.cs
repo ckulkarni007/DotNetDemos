@@ -17,7 +17,7 @@ namespace WebAPIDemo.Controllers
             return ADOHelper.SQLReaderWithDataTable();
         }
 
-       // [Route("{id:validateId}/name")]
+        [Route("api/Test/{id:validateId}")]
         public string GetEmployeesFromDB(int id)
         {
             return ADOHelper.SQLReaderWithDataTable().Find(x => x.ID.Equals(id)).FirstName;

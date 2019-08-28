@@ -15,11 +15,11 @@ namespace WebAPIDemo
         public static void Register(HttpConfiguration config)
         {
             #region Routes
-            //     // Web API configuration and services
-            //     var constraintProvider = new DefaultInlineConstraintResolver();
-            //     constraintProvider.ConstraintMap.Add("validateId", typeof(IdValueConstraint));
-            //     // Web API routes
-            //     config.MapHttpAttributeRoutes(constraintProvider);
+            // Web API configuration and services
+            var constraintProvider = new DefaultInlineConstraintResolver();
+            constraintProvider.ConstraintMap.Add("validateId", typeof(IdValueConstraint));
+            // Web API routes
+            config.MapHttpAttributeRoutes(constraintProvider);
 
             //     config.Routes.MapHttpRoute(
             //         name: "category",
@@ -36,7 +36,6 @@ namespace WebAPIDemo
             //    name: "ActionApi",
             //    routeTemplate: "api/{controller}/{action}"
             //);
-            config.MapHttpAttributeRoutes();
 
             #endregion
             // RouteTemplate
@@ -72,20 +71,20 @@ namespace WebAPIDemo
     //    }
     //}
 
-    //class IdValueConstraint : IHttpRouteConstraint
-    //{
-    //    public bool Match(HttpRequestMessage request, IHttpRoute route, string parameterName, IDictionary<string, object> values, HttpRouteDirection routeDirection)
-    //    {
-    //        if (values.TryGetValue(parameterName, out object parsedValue) && parsedValue != null)
-    //        {
-    //            int para = Convert.ToInt32(parsedValue);
-    //            if (para > 3)
-    //                return true;
-    //            return false;
-    //        }
-    //        return false;
-    //    }
-    //}
+    class IdValueConstraint : IHttpRouteConstraint
+    {
+        public bool Match(HttpRequestMessage request, IHttpRoute route, string parameterName, IDictionary<string, object> values, HttpRouteDirection routeDirection)
+        {
+            if (values.TryGetValue(parameterName, out object parsedValue) && parsedValue != null)
+            {
+                int para = Convert.ToInt32(parsedValue);
+                if (para > 3)
+                    return true;
+                return false;
+            }
+            return false;
+        }
+    }
 }
 
 //Formating and casing
