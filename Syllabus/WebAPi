@@ -1,7 +1,7 @@
 Web API 
 
 WCF - cross protocol support. Single service can serve 2 clients java n .net with different protocols like FTP n HTTP.
-
+Only support HTTP protocol. Returns data instead of View(in MVC)
 
 REST Constraints -
 - ClientServer
@@ -13,11 +13,54 @@ REST Constraints -
 Evolution of API - (initially there were different methods exposed for individual operation)
 Then HTTP evolution (GET, POST, PUT etc.)
 
-POST: take this data and apply it to the resource identified by the given URI, following the rules you documented for the resource media type.
+Demo - Get, Put, Post methods
 
-PUT: replace whatever is identified by the given URI with this data, ignoring whatever is in there already, if anything.
 
-PATCH: if the resource identified by the given URI still has the same state it had the last time I looked, apply this diff to it.
+Content Negotiation - 
+	-client chooses the data format , JsonFormatters, XmlFormatters,
+	-can have multiple formatters in Accept header.( application/xml;q=0.9, Application/json; q=0.8)
+
+Routing - 
+	- Convention Based
+	- Attribute based
+- Routing by verbs
+- Routing by action (Non-Action)
+
+Attribute Routing -
+	- need - (when sub resources are accessing)
+	- Attributes - variations
+	- RoutePrefix
+	- Constraints
+
+IHttpRouteData  - Dictionary of controller and action 
+eg. For the URI path "api/products", the route dictionary will contain:
+	controller: "products"
+	category: "all"
+
+	For "api/products/toys/123", however, the route dictionary will contain:
+	controller: "products"
+	category: "toys"
+	id: "123"
+
+Parameter Binding -
+ - query parameters
+ - req body parameters
+ - FromUri and FromBody
+
+Return types - 
+ - void
+ - primitive and complex
+ - httpresponsemessage
+ - IActionResult
+
+Data Formats
+ - MediaType - type/subtype eg. application/json, text/html, image/jpeg
+ - For response which client expects , use Accept in header
+ - For request which client sends, use content-type
+
+
+
+
 
 
 Web API Pipeline 

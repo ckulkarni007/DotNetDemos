@@ -1,12 +1,9 @@
 ﻿using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
+using System.Web.Http.Dispatcher;
+using WebAPIDemo.Versioning;
 
 namespace WebAPIDemo
 {
@@ -14,30 +11,13 @@ namespace WebAPIDemo
     {
         public static void Register(HttpConfiguration config)
         {
-            #region Routes
             // Web API configuration and services
+            //Register the custom constraint in default resolver.
             var constraintProvider = new DefaultInlineConstraintResolver();
             constraintProvider.ConstraintMap.Add("validateId", typeof(IdValueConstraint));
             // Web API routes
             config.MapHttpAttributeRoutes(constraintProvider);
 
-            //     config.Routes.MapHttpRoute(
-            //         name: "category",
-            //         routeTemplate: "api/{category}",
-            //         defaults: new { controller = "employee", category = "product" }
-            //      );
-
-            //     config.Routes.MapHttpRoute(
-            //    name: "DefaultAPiWithoutParam",
-            //    routeTemplate: "api/{controller}"
-            //); 
-            // RouteTemplate
-            // config.Routes.MapHttpRoute(
-            //    name: "ActionApi",
-            //    routeTemplate: "api/{controller}/{action}"
-            //);
-
-            #endregion
             // RouteTemplate
             config.Routes.MapHttpRoute(
                name: "ActionApi",
@@ -47,48 +27,44 @@ namespace WebAPIDemo
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "mynewAssignment/version/1.0/api/{controller}/{id}",
-                  defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{id}",
+                //handler: new MyCustomMessageHandler(),
+                //constraints: new { },
+                 defaults: new { id = RouteParameter.Optional }
             );
 
+            config.Services.Replace(typeof(IHttpControllerSelector), new CustomControllerSelectionHandler(config));
 
-            // config.Formatters.Remove(config.Formatters.JsonFormatter);
+            //Formating and casing
+            config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
+
+            //Adding CamelCasing as a default serialization Setting.
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //To Remove any existing formatter
+            //config.Formatters.Remove(config.Formatters.JsonFormatter);
+
+            //To Add custom Formatter
             //config.Formatters.Add(new CustomJsonFormatter());
 
+            //To support any new media type.
+            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+
+            EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(enableCorsAttribute);
+
+           
         }
     }
 
-    //class CustomJsonFormatter : JsonMediaTypeFormatter
+
+    //class MyCustomMessageHandler : HttpMessageHandler
     //{
-    //    public CustomJsonFormatter()
+    //    protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
     //    {
-    //        this.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-    //    }
-    //    public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)
-    //    {
-    //        base.SetDefaultContentHeaders(type, headers, mediaType);
-    //        headers.ContentType = new MediaTypeHeaderValue("application/json");
+    //        Debug.Write("My Custome route handle");
     //    }
     //}
-
-    class IdValueConstraint : IHttpRouteConstraint
-    {
-        public bool Match(HttpRequestMessage request, IHttpRoute route, string parameterName, IDictionary<string, object> values, HttpRouteDirection routeDirection)
-        {
-            if (values.TryGetValue(parameterName, out object parsedValue) && parsedValue != null)
-            {
-                int para = Convert.ToInt32(parsedValue);
-                if (para > 3)
-                    return true;
-                return false;
-            }
-            return false;
-        }
-    }
 }
 
-//Formating and casing
-//config.Formatters.JsonFormatter.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-//          config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-//config.Formatters.Remove(config.Formatters.XmlFormatter);
-//config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+
