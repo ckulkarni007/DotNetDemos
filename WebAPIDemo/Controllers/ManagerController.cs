@@ -5,11 +5,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebAPIDemo.Filters;
 
 namespace WebAPIDemo.Controllers
 {
     public class ManagerController : ApiController
     {
+        
         public string GetmanagerByIdAndName(int id, string name)
         {
             return $"{id.ToString()} - {name}";

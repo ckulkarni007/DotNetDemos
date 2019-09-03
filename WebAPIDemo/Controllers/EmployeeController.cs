@@ -15,6 +15,16 @@ namespace WebAPIDemo.Controllers
         {
             OfficeEmployee.GetEmployeeDetails();
         }
+        [ActionFilterDemo]
+        public List<OfficeEmployee> GetAllEmployees()
+        {
+            return OfficeEmployee.GetEmployeeDetails();
+        }
+
+        public OfficeEmployee GetEmployee(int id)
+        {
+            return OfficeEmployee.GetEmployeeById(id);
+        }
 
         [HttpGet]
        // [ActionFilterDemo]
@@ -23,7 +33,7 @@ namespace WebAPIDemo.Controllers
 
             var employee = OfficeEmployee.GetEmployeeById(id);
             if (employee == null)
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, new Exception("Incorrect employee", new Exception("this is innerException")));
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, new Exception("No Employee Available"));
             else
                 return Request.CreateResponse(HttpStatusCode.OK, employee);
         }
@@ -42,10 +52,26 @@ namespace WebAPIDemo.Controllers
 
 
 
-        public string Put(int id, string name)
+        public IHttpActionResult Put(int id, string name)
         {
             OfficeEmployee.GetEmployeeById(id).Name = name;
-            return "name updated successfully";
+            return Ok(name);
+        }
+
+        public IHttpActionResult PutComplex(int id, OfficeEmployee officeEmployee)
+        {
+            var empResult = OfficeEmployee.GetEmployeeById(id);
+            if (empResult == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                empResult.Name = officeEmployee.Name;
+                empResult.Salary = officeEmployee.Salary;
+
+                return Ok(empResult);
+            }
         }
 
         public string Post(OfficeEmployee officeEmployee)

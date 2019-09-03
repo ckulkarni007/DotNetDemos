@@ -25,6 +25,13 @@ CLR Elements -
 				  - 1 - Short lived
 				  - 2 - Long lived 
 				  Survival and promotions
+	GC by default cleans up managed code. It does not clean Unmanaged code(DB Connection, I/O file handlers etc)
+ 	Finalize() - non explicit and Dispose - explicit - For Unmanaged Code
+
 4 JIT Compiler - Pre (everything at the start itself)
 			   - Econo (removes once used)
 			   - Normal (Caching)
+	How it compiles - 
+		- Per File
+		- Per Method
+		- Code Fragment
