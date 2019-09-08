@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Security.Principal;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
 namespace WebAPIDemo.Filters
 {
-    public class MessageHandler : DelegatingHandler
+    public class CustomAuthorizationAttribute : AuthorizeAttribute
     {
-        //protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-        //{
-        //     base.SendAsync(request, cancellationToken);
-        //    Debug.WriteLine("I been excuted");
-        //    return Task.FromResult<HttpResponseMessage>(new HttpResponseMessage() { Content = new StringContent("Hell") });
-        //}
+        protected override bool IsAuthorized(HttpActionContext actionContext)
+        {
+            if (actionContext.RequestContext.Principal.IsInRole("admin"))
+                return true;
+            else
+                return false;
+        }
     }
+
+
 
     //public class CustomAuthFilter : AuthorizeAttribute
     //{

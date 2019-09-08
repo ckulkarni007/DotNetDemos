@@ -45,14 +45,15 @@ namespace WebAPIDemo
             //config.Formatters.Remove(config.Formatters.JsonFormatter);
 
             //To Add custom Formatter
-            //config.Formatters.Add(new CustomJsonFormatter());
+            config.Formatters.Add(new CustomJsonFormatter());
 
             //To support any new media type.
-            config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
+            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new System.Net.Http.Headers.MediaTypeHeaderValue("text/html"));
 
             EnableCorsAttribute enableCorsAttribute = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(enableCorsAttribute);
 
+           // config.MessageHandlers.Add(new AuthtenticationHandler());
            
         }
     }

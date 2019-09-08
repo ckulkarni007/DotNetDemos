@@ -34,7 +34,7 @@ namespace LINQTutorials
         static void Main(string[] args)
         {
             List<int> item1 = new List<int> { 1, 2, 3, 4, 4, 5, 8, 1, 2 };
-
+            var t =  item1.FirstOrDefault(x=>x>12);
             List<MainEmployee> allEMp = new List<MainEmployee>();
             allEMp.Add(new Intern());
             allEMp.Add(new ContractEmp());
