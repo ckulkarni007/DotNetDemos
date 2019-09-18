@@ -1,4 +1,5 @@
 Create 3    collections with following details
+
 1. Country       
 	- Id
 	- Name
